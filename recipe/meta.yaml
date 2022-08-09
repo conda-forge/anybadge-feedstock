@@ -11,8 +11,8 @@ source:
 
 build:
   entry_points:
-    - anybadge=anybadge:main
-    - anybadge-server=anybadge_server:main
+    - anybadge=anybadge.cli:main
+    - anybadge-server=anybadge.server.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -29,7 +29,6 @@ requirements:
 test:
   imports:
     - anybadge
-    - anybadge_server
   commands:
     - pip check
     - anybadge --help
