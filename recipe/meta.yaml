@@ -1,5 +1,5 @@
 {% set name = "anybadge" %}
-{% set version = "1.9.0" %}
+{% set version = "1.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/anybadge-{{ version }}.tar.gz
-  sha256: 98cf380d284946c5c48ae00a3fe52ce8723880b88eb30fc0808610845034db3c
+  sha256: eddc26c39535d49ce58c0fb035c33e22e452f15c31471c0646bc2379378b4ecd
 
 build:
   entry_points:
-    - anybadge=anybadge:main
-    - anybadge-server=anybadge_server:main
+    - anybadge=anybadge.cli:main
+    - anybadge-server=anybadge.server.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -20,11 +20,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.4
+    - python >=3.7
 
   run:
     - packaging
-    - python >=3.4
+    - python >=3.7
 
 test:
   imports:
