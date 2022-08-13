@@ -11,8 +11,8 @@ source:
 
 build:
   entry_points:
-    - anybadge=anybadge:main
-    - anybadge-server=anybadge_server:main
+    - anybadge=anybadge.cli:main
+    - anybadge-server=anybadge.server.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -20,11 +20,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.4
+    - python >=3.7
 
   run:
     - packaging
-    - python >=3.4
+    - python >=3.7
 
 test:
   imports:
