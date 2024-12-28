@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/anybadge-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anybadge-{{ version }}.tar.gz
   sha256: 47f06e0a6320d3e5eac55c712dc0bab71b9ed85353c591d448653c5a0740783f
 
 build:
@@ -15,16 +15,17 @@ build:
     - anybadge-server=anybadge.server.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
+    - setuptools
 
   run:
     - packaging
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -36,6 +37,7 @@ test:
     - anybadge-server --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jongracecox/anybadge
