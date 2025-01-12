@@ -1,5 +1,5 @@
 {% set name = "anybadge" %}
-{% set version = "1.15.6" %}
+{% set version = "1.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anybadge-{{ version }}.tar.gz
-  sha256: 4c9696f4c12c8f1461311b5c7f1eb5287cb444cb9f7231fe9a0e810e4dce2c93
+  sha256: f4e95eca834482f9932f9020ac2fe04a5ca863728b446324a8d35b1e67faab71
 
 build:
   entry_points:
